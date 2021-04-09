@@ -7,9 +7,9 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Red Stones
-  m_DiffuseTexture: {fileID: 2800000, guid: 46a15afa4e5747a4997e0971ce4adf78, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: b1a6ae6cee378ba45b43eaecef9046b5, type: 3}
-  m_MaskMapTexture: {fileID: 2800000, guid: a524f5eac0fed58408861867a520d3d5, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: 1c74151ccf915a8439c12fabecdd8734, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: 54a6904b414c08049adab2f12633afa8, type: 3}
+  m_MaskMapTexture: {fileID: 2800000, guid: a06050076a9ca674fae5ceec3e39b811, type: 3}
   m_TileSize: {x: 25, y: 25}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 0}

@@ -7,9 +7,9 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Big Stones Gray
-  m_DiffuseTexture: {fileID: 2800000, guid: dcd29eb9bb8615e4ba8e05dd570d042c, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: 6f6f7f2420204764e9296b3914b72b70, type: 3}
-  m_MaskMapTexture: {fileID: 2800000, guid: dcf3a39dc968ada45b4b87e614d4faa2, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: aca625d565313bd40a826f52e0ffd4e3, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: fb6d7975897be044691e89a2bd967d4e, type: 3}
+  m_MaskMapTexture: {fileID: 2800000, guid: 0f17057b8f2660440a3fb7375cd789b6, type: 3}
   m_TileSize: {x: 40, y: 40}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 0}
