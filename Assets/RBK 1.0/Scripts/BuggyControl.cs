@@ -623,7 +623,38 @@ public class BuggyControl : MonoBehaviour
 
             myRigidbody.centerOfMass = carSetting.shiftCentre;
 
+            if (Pitch == 1)
+            {
+                carSounds.IdleEngine.volume = Mathf.Lerp(carSounds.IdleEngine.volume, 1.0f, 0.1f);
+                carSounds.LowEngine.volume = Mathf.Lerp(carSounds.LowEngine.volume, 0.5f, 0.1f);
+                carSounds.HighEngine.volume = Mathf.Lerp(carSounds.HighEngine.volume, 0.0f, 0.1f);
 
+            }
+            else
+            {
+
+                carSounds.IdleEngine.volume = Mathf.Lerp(carSounds.IdleEngine.volume, 1.8f - Pitch, 0.1f);
+
+
+                if ((Pitch > PitchDelay || accel > 0) && shiftTime == 0.0f)
+                {
+                    carSounds.LowEngine.volume = Mathf.Lerp(carSounds.LowEngine.volume, 0.0f, 0.2f);
+                    carSounds.HighEngine.volume = Mathf.Lerp(carSounds.HighEngine.volume, 1.0f, 0.1f);
+                }
+                else
+                {
+                    carSounds.LowEngine.volume = Mathf.Lerp(carSounds.LowEngine.volume, 0.5f, 0.1f);
+                    carSounds.HighEngine.volume = Mathf.Lerp(carSounds.HighEngine.volume, 0.0f, 0.2f);
+                }
+
+
+
+
+                carSounds.HighEngine.pitch = Pitch;
+                carSounds.LowEngine.pitch = Pitch;
+
+                PitchDelay = Pitch;
+            }
 
             if (activeControl)
             {
@@ -1111,38 +1142,7 @@ public class BuggyControl : MonoBehaviour
 
             shiftTime = Mathf.MoveTowards(shiftTime, 0.0f, 0.1f);
 
-            if (Pitch == 1)
-            {
-                carSounds.IdleEngine.volume = Mathf.Lerp(carSounds.IdleEngine.volume, 1.0f, 0.1f);
-                carSounds.LowEngine.volume = Mathf.Lerp(carSounds.LowEngine.volume, 0.5f, 0.1f);
-                carSounds.HighEngine.volume = Mathf.Lerp(carSounds.HighEngine.volume, 0.0f, 0.1f);
 
-            }
-            else
-            {
-
-                carSounds.IdleEngine.volume = Mathf.Lerp(carSounds.IdleEngine.volume, 1.8f - Pitch, 0.1f);
-
-
-                if ((Pitch > PitchDelay || accel > 0) && shiftTime == 0.0f)
-                {
-                    carSounds.LowEngine.volume = Mathf.Lerp(carSounds.LowEngine.volume, 0.0f, 0.2f);
-                    carSounds.HighEngine.volume = Mathf.Lerp(carSounds.HighEngine.volume, 1.0f, 0.1f);
-                }
-                else
-                {
-                    carSounds.LowEngine.volume = Mathf.Lerp(carSounds.LowEngine.volume, 0.5f, 0.1f);
-                    carSounds.HighEngine.volume = Mathf.Lerp(carSounds.HighEngine.volume, 0.0f, 0.2f);
-                }
-
-
-
-
-                carSounds.HighEngine.pitch = Pitch;
-                carSounds.LowEngine.pitch = Pitch;
-
-                PitchDelay = Pitch;
-            }
 
         }
     }
