@@ -49,5 +49,7 @@ public class CameraFollow : MonoBehaviour
         {
             transform.rotation = target.rotation;
         }
+
+        //transform.rotation = new Quaternion()
     }
 }

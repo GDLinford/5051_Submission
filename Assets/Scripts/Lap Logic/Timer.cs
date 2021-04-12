@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
     public Text time;
     public Text Score;
-    private bool finished;
 
     private float timer;
     private int gScore;
@@ -26,21 +26,19 @@ public class Timer : MonoBehaviour
         timer += Time.deltaTime;
         time.text = timer.ToString("f2");
 
-        if (finished == true && timer <= 5f)
-        {
-            gScore += 100;
 
-            //We only need to update the text if the score changed.
-            Score.text = gScore.ToString();
-            PlayerPrefs.SetInt("Score", gScore);
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "end")
+        if (collision.gameObject.tag == "Car" &&  timer <= 100f)
         {
-            finished = true;
+            gScore += 100;
+
+            Score.text = gScore.ToString();
+            PlayerPrefs.SetInt("Score", gScore);
+
+            SceneManager.LoadScene("END");
         }
     }
 }

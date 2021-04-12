@@ -513,7 +513,8 @@ public class BuggyControl : MonoBehaviour
 
     void Update()
     {
-
+        // speed of car
+        speed = myRigidbody.velocity.magnitude * 2.7f;
 
         if (!carSetting.automaticGear && activeControl)
         {
@@ -606,19 +607,24 @@ public class BuggyControl : MonoBehaviour
     void FixedUpdate()
     {
 
-        // speed of car
-        speed = myRigidbody.velocity.magnitude * 2.7f;
+
 
         if (dummyBuggy.frontLeftFastActive == true || dummyBuggy.frontRightFastActive == true || dummyBuggy.rearLeftFastActive == true || dummyBuggy.rearRightFastActive == true)
         {
             speed = myRigidbody.velocity.magnitude * 3.3f;
         }
 
+
+        if (dummyBuggy.frontLeftSlowActive == true || dummyBuggy.frontRightSlowActive == true || dummyBuggy.rearLeftSlowActive == true || dummyBuggy.rearRightSlowActive == true)
+        {
+
+        }
+
         if (dummyBuggy.frontLeftFastActive == true && dummyBuggy.frontRightFastActive == true && dummyBuggy.rearLeftFastActive == true && dummyBuggy.rearRightFastActive == true)
         {
             carSetting.LimitForwardSpeed = 400;
             carSetting.maxSteerAngle = 100;
-            carSetting.stiffness = 0.5f;
+            carSetting.stiffness = 3.5f;
             speed = myRigidbody.velocity.magnitude * 8f;
         }
 
