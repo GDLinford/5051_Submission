@@ -183,13 +183,12 @@ public class BuggyControl : MonoBehaviour
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    [HideInInspector]
     public float speed = 0.0f;
     [HideInInspector]
     public bool brake;
     [HideInInspector]
     public float steer = 0;
-    [HideInInspector]
+
     public float curTorque = 100f;
     [HideInInspector]
     public float powerShift = 100;
@@ -206,7 +205,7 @@ public class BuggyControl : MonoBehaviour
     public bool Backward = false;
 
 
-    private float lastSpeed = -10.0f;
+    public float lastSpeed = -10.0f;
     private float accel = 0.0f;
     private float torque = 100f;
 
@@ -218,7 +217,7 @@ public class BuggyControl : MonoBehaviour
     private float efficiencyTableStep = 250.0f;
 
 
-    private float Pitch;
+    public float Pitch;
     private float PitchDelay;
     private float shiftTime = 0.0f;
     private float shiftDelay = 0.0f;
@@ -355,7 +354,7 @@ public class BuggyControl : MonoBehaviour
         {
 
            // if (!carSounds.switchGear.isPlaying)
-                carSounds.switchGear.GetComponent<AudioSource>().Play();
+                //carSounds.switchGear.GetComponent<AudioSource>().Play();
 
 
                 if (!carSetting.automaticGear)
@@ -395,7 +394,7 @@ public class BuggyControl : MonoBehaviour
         {
 
            //w if (!carSounds.switchGear.isPlaying)
-                carSounds.switchGear.GetComponent<AudioSource>().Play();
+                //carSounds.switchGear.GetComponent<AudioSource>().Play();
 
                 if (!carSetting.automaticGear)
             {
@@ -607,10 +606,26 @@ public class BuggyControl : MonoBehaviour
     void FixedUpdate()
     {
 
-        if(stateChanger.changed == true)
+        // speed of car
+        speed = myRigidbody.velocity.magnitude * 2.7f;
+
+        if (dummyBuggy.frontLeftFastActive == true || dummyBuggy.frontRightFastActive == true || dummyBuggy.rearLeftFastActive == true || dummyBuggy.rearRightFastActive == true)
         {
-            // speed of car
-            speed = myRigidbody.velocity.magnitude * 2.7f;
+            speed = myRigidbody.velocity.magnitude * 3.3f;
+        }
+
+        if (dummyBuggy.frontLeftFastActive == true && dummyBuggy.frontRightFastActive == true && dummyBuggy.rearLeftFastActive == true && dummyBuggy.rearRightFastActive == true)
+        {
+            carSetting.LimitForwardSpeed = 400;
+            carSetting.maxSteerAngle = 100;
+            carSetting.stiffness = 0.5f;
+            speed = myRigidbody.velocity.magnitude * 8f;
+        }
+
+
+        if (stateChanger.changed == true)
+        {
+            carSounds.IdleEngine.volume = Mathf.Lerp(carSounds.IdleEngine.volume, 1.0f, 0.1f);
 
             if (speed < lastSpeed - 10 && slip < 10) slip = lastSpeed / 15;
 
@@ -625,7 +640,7 @@ public class BuggyControl : MonoBehaviour
 
             if (Pitch == 1)
             {
-                carSounds.IdleEngine.volume = Mathf.Lerp(carSounds.IdleEngine.volume, 1.0f, 0.1f);
+                
                 carSounds.LowEngine.volume = Mathf.Lerp(carSounds.LowEngine.volume, 0.5f, 0.1f);
                 carSounds.HighEngine.volume = Mathf.Lerp(carSounds.HighEngine.volume, 0.0f, 0.1f);
 

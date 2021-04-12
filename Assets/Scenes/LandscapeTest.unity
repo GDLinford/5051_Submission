@@ -85142,6 +85142,10 @@ PrefabInstance:
       propertyPath: GarageDoor
       value: 
       objectReference: {fileID: 756640456}
+    - target: {fileID: 8210898, guid: a84119ce8eb01c840b2f75db1ec1bd7d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a84119ce8eb01c840b2f75db1ec1bd7d, type: 3}
 --- !u!1 &1825494212 stripped
