@@ -552,21 +552,29 @@ public class BuggyControl : MonoBehaviour
 
         if (dummyBuggy.frontRightFastActive == true && frontRightActive == false)
         {
+            carSetting.stiffness += 0.5f;
+            carSetting.maxSteerAngle += 50;
             frontRightActive = true;
         }
 
         if(dummyBuggy.frontLeftFastActive == true && frontLeftActive == false)
         {
+            carSetting.stiffness += 0.5f;
+            carSetting.maxSteerAngle += 50;
             frontLeftActive = true;
         }
 
         if (dummyBuggy.rearRightFastActive == true && rearRightActive == false)
         {
+            carSetting.stiffness += 0.5f;
+            carSetting.maxSteerAngle += 50;
             rearRightActive = true;
         }
 
         if (dummyBuggy.rearLeftFastActive == true && rearLeftActive == false)
         {
+            carSetting.stiffness += 0.5f;
+            carSetting.maxSteerAngle += 50;
             rearLeftActive = true;
         }
 
@@ -615,19 +623,12 @@ public class BuggyControl : MonoBehaviour
         }
 
 
-        if (dummyBuggy.frontLeftSlowActive == true || dummyBuggy.frontRightSlowActive == true || dummyBuggy.rearLeftSlowActive == true || dummyBuggy.rearRightSlowActive == true)
+        if (dummyBuggy.frontLeftSlowActive == true && dummyBuggy.frontRightSlowActive == true && dummyBuggy.rearLeftSlowActive == true && dummyBuggy.rearRightSlowActive == true)
         {
-
+            carSetting.LimitForwardSpeed = 250;
+            carSetting.stiffness = 1.5f;
+            carSetting.maxSteerAngle = 200;
         }
-
-        if (dummyBuggy.frontLeftFastActive == true && dummyBuggy.frontRightFastActive == true && dummyBuggy.rearLeftFastActive == true && dummyBuggy.rearRightFastActive == true)
-        {
-            carSetting.LimitForwardSpeed = 400;
-            carSetting.maxSteerAngle = 100;
-            carSetting.stiffness = 3.5f;
-            speed = myRigidbody.velocity.magnitude * 8f;
-        }
-
 
         if (stateChanger.changed == true)
         {
