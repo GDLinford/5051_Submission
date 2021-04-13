@@ -33,7 +33,7 @@ public class BuggyControl : MonoBehaviour
 
     public CarWheels carWheels;
 
-    [HideInInspector] public WheelHp WheelHp;
+    [HideInInspector] public WheelHp wheelHp;
 
     [System.Serializable]
     public class CarWheels
@@ -338,8 +338,8 @@ public class BuggyControl : MonoBehaviour
 
     void Start()
     {
-        WheelHp = GetComponent<WheelHp>();
-        WheelHp.SetHealth(50);
+        wheelHp = GetComponent<WheelHp>();
+        wheelHp.SetHealth(50);
         dummyBuggy = FindObjectOfType<DummyBuggy>();
         stateChanger = GetComponent<StateChanger>();
     }
@@ -441,41 +441,41 @@ public class BuggyControl : MonoBehaviour
             collided = true;
             if (collided == true)
             {
-                WheelHp.WheelsHP -= 1;
+                wheelHp.WheelsHP -= 1;
 
-                Debug.Log("Wheels HP: " + WheelHp.WheelsHP);
+                Debug.Log("Wheels HP: " + wheelHp.WheelsHP);
 
-                if (WheelHp.WheelsHP == 8)
+                if (wheelHp.WheelsHP == 8)
                 {
 
                 }
 
-                if (WheelHp.WheelsHP == 6)
+                if (wheelHp.WheelsHP == 6)
                 {
 
                 }
 
-                if (WheelHp.WheelsHP == 4)
+                if (wheelHp.WheelsHP == 4)
                 {
 
                 }
 
-                if (WheelHp.WheelsHP == 2)
+                if (wheelHp.WheelsHP == 2)
                 {
 
                 }
 
-                if (WheelHp.WheelsHP > 4)
+                if (wheelHp.WheelsHP > 4)
                 {
 
                 }
 
-                if (WheelHp.WheelsHP > 6)
+                if (wheelHp.WheelsHP > 6)
                 {
                     
                 }
 
-                if (WheelHp.WheelsHP > 8)
+                if (wheelHp.WheelsHP > 8)
                 {
                     
                 }
@@ -556,6 +556,7 @@ public class BuggyControl : MonoBehaviour
             carSetting.stiffness += 0.5f;
             carSetting.maxSteerAngle += 50;
             frontRightActive = true;
+           
         }
 
         if(dummyBuggy.frontLeftFastActive == true && frontLeftActive == false)
