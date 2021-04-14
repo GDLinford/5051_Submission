@@ -127,6 +127,7 @@ public class DummyBuggy : MonoBehaviour
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
+        //the balanced one
         if (collider.gameObject.tag == "SteeringWheel1" && buggyControl.steeringWheelActive != true)
         {
             buggyControl.steeringWheelActive = true;
@@ -134,13 +135,16 @@ public class DummyBuggy : MonoBehaviour
             Destroy(collider.gameObject);
         }
 
+        //the fast one
         if (collider.gameObject.tag == "SteeringWheel2" && buggyControl.steeringWheelActive != true)
         {
             buggyControl.steeringWheelActive = true;
+            buggyControl.carSetting.LimitForwardSpeed += 50;
             //add the game obhect active for the steering wheel when its on the car
             Destroy(collider.gameObject);
         }
 
+        //the slow one
         if (collider.gameObject.tag == "SteeringWheel3" && buggyControl.steeringWheelActive != true)
         {
             buggyControl.steeringWheelActive = true;
@@ -148,6 +152,7 @@ public class DummyBuggy : MonoBehaviour
             Destroy(collider.gameObject);
         }
 
+        //the balanced one
         if (collider.gameObject.tag == "Engine1" && buggyControl.engineActive != true)
         {
             buggyControl.engineActive = true;
@@ -155,15 +160,19 @@ public class DummyBuggy : MonoBehaviour
             Destroy(collider.gameObject);
         }
 
+        //the fast one
         if (collider.gameObject.tag == "Engine2" && buggyControl.engineActive != true)
         {
             buggyControl.engineActive = true;
+            buggyControl.carSetting.LimitForwardSpeed += 50;
             //As with steering Wheels when tthe engine is added to the car enable/show it on the model
             Destroy(collider.gameObject);
         }
 
+        //the slow one
         if (collider.gameObject.tag == "Engine3" && buggyControl.engineActive != true)
         {
+            buggyControl.speed -= buggyControl.myRigidbody.velocity.magnitude * 1f;
             buggyControl.engineActive = true;
             //As with steering Wheels when tthe engine is added to the car enable/show it on the model
             Destroy(collider.gameObject);

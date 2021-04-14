@@ -229,7 +229,7 @@ public class BuggyControl : MonoBehaviour
 
     private GameObject[] Particle = new GameObject[4];
     private Vector3 steerCurAngle;
-    private Rigidbody myRigidbody;
+    [HideInInspector] public Rigidbody myRigidbody;
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
