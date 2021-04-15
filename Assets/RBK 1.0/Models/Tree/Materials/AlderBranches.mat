@@ -26,7 +26,7 @@ Material:
     m_Floats:
     - _AO: 4.2336397
     - _BaseLight: 1
-    - _Cutoff: 0.83208954
+    - _Cutoff: 0.559
     - _Occlusion: 8.760046
     - _SquashAmount: 1
     m_Colors:

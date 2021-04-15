@@ -131,6 +131,7 @@ public class DummyBuggy : MonoBehaviour
         if (collider.gameObject.tag == "SteeringWheel1" && buggyControl.steeringWheelActive != true)
         {
             buggyControl.steeringWheelActive = true;
+            buggyControl.carSetting.maxSteerAngle += 200;
             //add the game obhect active for the steering wheel when its on the car
             Destroy(collider.gameObject);
         }
