@@ -10,7 +10,7 @@ public class ChangeScene : MonoBehaviour
 
 	public void PlayGame()
     {
-		SceneManager.LoadScene("LandscapeTest");
+		SceneManager.LoadScene("Main Scene");
     }
 
 	public void Options()
