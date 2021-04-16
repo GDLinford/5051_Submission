@@ -33,7 +33,37 @@ public class Timer : MonoBehaviour
     {
         if (collision.gameObject.tag == "Car" &&  timer <= 100f)
         {
-            gScore += 100;
+            gScore += 1000;
+
+            Score.text = gScore.ToString();
+            PlayerPrefs.SetInt("Score", gScore);
+
+            SceneManager.LoadScene("END");
+        }
+
+        if (collision.gameObject.tag == "Car" && timer <= 200f)
+        {
+            gScore += 800;
+
+            Score.text = gScore.ToString();
+            PlayerPrefs.SetInt("Score", gScore);
+
+            SceneManager.LoadScene("END");
+        }
+
+        if (collision.gameObject.tag == "Car" && timer <= 300f)
+        {
+            gScore += 600;
+
+            Score.text = gScore.ToString();
+            PlayerPrefs.SetInt("Score", gScore);
+
+            SceneManager.LoadScene("END");
+        }
+
+        if (collision.gameObject.tag == "Car" && timer <= 400f)
+        {
+            gScore += 400;
 
             Score.text = gScore.ToString();
             PlayerPrefs.SetInt("Score", gScore);

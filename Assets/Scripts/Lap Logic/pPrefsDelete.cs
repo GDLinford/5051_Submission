@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class pPrefsDelete : Timer
 {
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
     void OnGUI()
     {
         //press button to delete pPrefs score
