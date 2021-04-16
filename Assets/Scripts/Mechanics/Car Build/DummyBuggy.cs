@@ -6,6 +6,9 @@ public class DummyBuggy : MonoBehaviour
 {
     [HideInInspector] public BuggyControl buggyControl;
 
+    private AudioSource gSource;
+    [SerializeField] AudioClip drill;
+
     //parts Active bools
     public bool frontLeftBalancedActive;
     public bool frontLeftFastActive;
@@ -26,7 +29,8 @@ public class DummyBuggy : MonoBehaviour
     void Start()
     {
         buggyControl = FindObjectOfType<BuggyControl>();
-        
+        gSource = GetComponent<AudioSource>();
+
         frontLeftBalancedActive = false;
         frontLeftFastActive = false;
         frontLeftSlowActive = false;
@@ -43,150 +47,158 @@ public class DummyBuggy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collider)
     {
-        if (collider.gameObject.tag == "BalancedWheelFR" && buggyControl.frontRightActive != true)
+        if (collider.gameObject.CompareTag("BalancedWheelFR") && buggyControl.frontRightActive != true)
         {
             frontRightBalancedActive = true;
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
-        if (collider.gameObject.tag == "BalancedWheelFL" && buggyControl.frontLeftActive != true)
+        if (collider.gameObject.CompareTag("BalancedWheelFL") && buggyControl.frontLeftActive != true)
         {
             frontLeftBalancedActive = true;
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
-        if (collider.gameObject.tag == "BalancedWheelRR" && buggyControl.rearRightActive != true)
+        if (collider.gameObject.CompareTag("BalancedWheelRR") && buggyControl.rearRightActive != true)
         {
             rearRightBalancedActive = true;
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
-        if (collider.gameObject.tag == "BalancedWheelRL" && buggyControl.rearLeftActive != true)
+        if (collider.gameObject.CompareTag("BalancedWheelRL") && buggyControl.rearLeftActive != true)
         {
             rearLeftBalancedActive = true;
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
-        if (collider.gameObject.tag == "FastWheelFR" && buggyControl.frontRightActive != true)
+        if (collider.gameObject.CompareTag("FastWheelFR") && buggyControl.frontRightActive != true)
         {
             frontRightFastActive = true;
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
-        if (collider.gameObject.tag == "FastWheelFL" && buggyControl.frontLeftActive != true)
+        if (collider.gameObject.CompareTag("FastWheelFL") && buggyControl.frontLeftActive != true)
         {
             frontLeftFastActive = true;
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
-        if (collider.gameObject.tag == "FastWheelRR" && buggyControl.rearRightActive != true)
+        if (collider.gameObject.CompareTag("FastWheelRR") && buggyControl.rearRightActive != true)
         {
             rearRightFastActive = true;
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
-        if (collider.gameObject.tag == "FastWheelRL" && buggyControl.rearLeftActive != true)
+        if (collider.gameObject.CompareTag("FastWheelRL") && buggyControl.rearLeftActive != true)
         {
             rearLeftFastActive = true;
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
-        if (collider.gameObject.tag == "SlowWheelFR" && buggyControl.frontRightActive != true)
+        if (collider.gameObject.CompareTag("SlowWheelFR") && buggyControl.frontRightActive != true)
         {
             frontRightSlowActive = true;
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
-        if (collider.gameObject.tag == "SlowWheelFL" && buggyControl.frontLeftActive != true)
+        if (collider.gameObject.CompareTag("SlowWheelFL") && buggyControl.frontLeftActive != true)
         {
             frontLeftSlowActive = true;
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
-        if (collider.gameObject.tag == "SlowWheelRR" && buggyControl.rearRightActive != true)
+        if (collider.gameObject.CompareTag("SlowWheelRR") && buggyControl.rearRightActive != true)
         {
             rearRightSlowActive = true;
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
-        if (collider.gameObject.tag == "SlowWheelRL" && buggyControl.rearLeftActive != true)
+        if (collider.gameObject.CompareTag("SlowWheelRL") && buggyControl.rearLeftActive != true)
         {
             rearLeftSlowActive = true;
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
         //the balanced one
-        if (collider.gameObject.tag == "SteeringWheel1" && buggyControl.steeringWheelActive != true)
+        if (collider.gameObject.CompareTag("SteeringWheel1") && buggyControl.steeringWheelActive != true)
         {
             buggyControl.steeringWheelActive = true;
             buggyControl.carSetting.maxSteerAngle += 200;
             //add the game obhect active for the steering wheel when its on the car
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
         }
 
         //the fast one
-        if (collider.gameObject.tag == "SteeringWheel2" && buggyControl.steeringWheelActive != true)
+        if (collider.gameObject.CompareTag("SteeringWheel2") && buggyControl.steeringWheelActive != true)
         {
             buggyControl.steeringWheelActive = true;
             buggyControl.carSetting.LimitForwardSpeed += 50;
             //add the game obhect active for the steering wheel when its on the car
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
         }
 
         //the slow one
-        if (collider.gameObject.tag == "SteeringWheel3" && buggyControl.steeringWheelActive != true)
+        if (collider.gameObject.CompareTag("SteeringWheel3") && buggyControl.steeringWheelActive != true)
         {
             buggyControl.steeringWheelActive = true;
             //add the game obhect active for the steering wheel when its on the car
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
         }
 
         //the balanced one
-        if (collider.gameObject.tag == "Engine1" && buggyControl.engineActive != true)
+        if (collider.gameObject.CompareTag("Engine1") && buggyControl.engineActive != true)
         {
             buggyControl.engineActive = true;
             //As with steering Wheels when tthe engine is added to the car enable/show it on the model
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
         }
 
         //the fast one
-        if (collider.gameObject.tag == "Engine2" && buggyControl.engineActive != true)
+        if (collider.gameObject.CompareTag("Engine2") && buggyControl.engineActive != true)
         {
             buggyControl.engineActive = true;
             buggyControl.carSetting.LimitForwardSpeed += 50;
             //As with steering Wheels when tthe engine is added to the car enable/show it on the model
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
         }
 
         //the slow one
-        if (collider.gameObject.tag == "Engine3" && buggyControl.engineActive != true)
+        if (collider.gameObject.CompareTag("Engine3") && buggyControl.engineActive != true)
         {
             buggyControl.speed -= buggyControl.myRigidbody.velocity.magnitude * 1f;
             buggyControl.engineActive = true;
             //As with steering Wheels when tthe engine is added to the car enable/show it on the model
             Destroy(collider.gameObject);
+            gSource.PlayOneShot(drill);
         }
-
-        
-
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

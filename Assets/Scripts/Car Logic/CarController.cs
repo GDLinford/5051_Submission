@@ -99,7 +99,7 @@ namespace UnityStandardAssets.Vehicles.Car
         {
             //if the wheels have a specific tag on them then a specific object in the hierachy will become active
 
-            if (collider.gameObject.tag == "BalancedWheelFR" && frontRightActive != true)
+            if (collider.gameObject.CompareTag("BalancedWheelFR") && frontRightActive != true)
             {
                 frontRightActive = true;
                 m_WheelMeshes[0].SetActive(true);
@@ -107,7 +107,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 //there will be more logic if another wheel is already active but that will be added when I know the basics are working
             }
 
-            if (collider.gameObject.tag == "BalancedWheelFL" && frontLeftActive != true)
+            if (collider.gameObject.CompareTag("BalancedWheelFL") && frontLeftActive != true)
             {
                 frontLeftActive = true;
                 m_WheelMeshes[1].SetActive(true);
@@ -115,7 +115,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 //there will be more logic if another wheel is already active but that will be added when I know the basics are working
             }
 
-            if (collider.gameObject.tag == "BalancedWheelRR" && rearRightActive != true)
+            if (collider.gameObject.CompareTag("BalancedWheelRR") && rearRightActive != true)
             {
                 rearRightActive = true;
                 m_WheelMeshes[2].SetActive(true);
@@ -123,7 +123,7 @@ namespace UnityStandardAssets.Vehicles.Car
                 //there will be more logic if another wheel is already active but that will be added when I know the basics are working
             }
 
-            if (collider.gameObject.tag == "BalancedWheelRL" && rearLeftActive != true)
+            if (collider.gameObject.CompareTag("BalancedWheelRL") && rearLeftActive != true)
             {
                 rearLeftActive = true;
                 m_WheelMeshes[3].SetActive(true);

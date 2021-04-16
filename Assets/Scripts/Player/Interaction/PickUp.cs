@@ -10,13 +10,16 @@ public class PickUp : MonoBehaviour
 
 	public Transform objectDestination;
 
+	private AudioSource gSource;
+	[SerializeField] AudioClip PickupSound;
+	[SerializeField] AudioClip Drop;
 	public GameObject objectInHand;
+
+	private float timer;
 
 	void Start() {
 		isClose = false;
-	}
-
-	public void LateUpdate() {
+		gSource = GetComponent<AudioSource>();
 		
 	}
 
@@ -36,63 +39,23 @@ public class PickUp : MonoBehaviour
 			this.transform.parent = GameObject.Find("Hand").transform;
 			objectInHand = this.gameObject;
 			//IdentifyItem();
-			
+			gSource.PlayOneShot(PickupSound);
 		}
 	}
 
-	void OnMouseUp() {
+	void OnMouseUp()
+	{
+		timer = 2f;
+		timer -= 1f;
 		this.transform.parent = null;
 		GetComponent<Rigidbody>().useGravity = true;
 		GetComponent<Rigidbody>().isKinematic = false;
-		//cC.hasEngine = false;
-		//cC.hasSteeringWheel = false;
-		//cC.hasGear = false;
-		//cC.hasWheel = false;
-		//if (objectInHand.gameObject.CompareTag("Engine") && cC.carInRange) {
-		//	cC.engineFitted = true;
-		//	cC.carEngine.SetActive(true);
-		//	Destroy(gameObject);
-		//}
-	
 
-		
-		//if (objectInHand.gameObject.CompareTag("SteeringWheel" ) && cC.carInRange) {
-		//	cC.steeringWheelFitted = true;
-		//	cC.carSteeringWheel.SetActive(true);
-		//	Destroy(gameObject);
-		//}
-		//if (objectInHand.gameObject.CompareTag("Gear") && cC.carInRange) {
-		//	cC.gearFitted = true;
-		//	cC.carGear.SetActive(true);
-		//	Destroy(gameObject);
-		//}
-		//if (objectInHand.gameObject.CompareTag("Wheel") && cC.carInRange) {
-		//	cC.wheelFitted = true;
-		//	cC.carWheel.SetActive(true);
-		//	cC.carWheel2.SetActive(true);
-		//	cC.carWheel3.SetActive(true);
-		//	cC.carWheel4.SetActive(true);
-		//	Destroy(gameObject);
-		//}
+		if (timer <= 0)
+        {
+			gSource.PlayOneShot(Drop);
+			timer = 2f;
+        }
 		
 	}
-
-	//public void IdentifyItem() {
-	//	if (objectInHand.gameObject.CompareTag("Engine")) {
-	//		cC.hasEngine = true;
-	//		Debug.Log("we found Engine");
-	//	}
-	//	if (objectInHand.gameObject.CompareTag("SteeringWheel")) {
-	//		cC.hasSteeringWheel = true;
-	//		Debug.Log("we found SWheel");
-	//	}
-	//	if (objectInHand.gameObject.CompareTag("Wheel")) {
-	//		cC.hasWheel = true;
-	//		Debug.Log("we found Wheel");
-	//	}
-	//	if (objectInHand.gameObject.CompareTag("Gear")) {
-	//		cC.hasGear = true;
-	//		Debug.Log("we found Gear");
-	//	}
-	//}
 }

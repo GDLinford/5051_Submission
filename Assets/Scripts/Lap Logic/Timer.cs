@@ -31,7 +31,7 @@ public class Timer : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Car" &&  timer <= 100f)
+        if (collision.gameObject.CompareTag("Car") &&  timer <= 100f)
         {
             gScore += 1000;
 
@@ -41,7 +41,7 @@ public class Timer : MonoBehaviour
             SceneManager.LoadScene("END");
         }
 
-        if (collision.gameObject.tag == "Car" && timer <= 200f)
+        if (collision.gameObject.CompareTag("Car") && timer <= 200f)
         {
             gScore += 800;
 
@@ -64,6 +64,46 @@ public class Timer : MonoBehaviour
         if (collision.gameObject.tag == "Car" && timer <= 400f)
         {
             gScore += 400;
+
+            Score.text = gScore.ToString();
+            PlayerPrefs.SetInt("Score", gScore);
+
+            SceneManager.LoadScene("END");
+        }
+
+        if (collision.gameObject.tag == "Car" && timer <= 500f)
+        {
+            gScore += 200;
+
+            Score.text = gScore.ToString();
+            PlayerPrefs.SetInt("Score", gScore);
+
+            SceneManager.LoadScene("END");
+        }
+
+        if (collision.gameObject.tag == "Car" && timer <= 600f)
+        {
+            gScore += 100;
+
+            Score.text = gScore.ToString();
+            PlayerPrefs.SetInt("Score", gScore);
+
+            SceneManager.LoadScene("END");
+        }
+
+        if (collision.gameObject.tag == "Car" && timer <= 700f)
+        {
+            gScore += 50;
+
+            Score.text = gScore.ToString();
+            PlayerPrefs.SetInt("Score", gScore);
+
+            SceneManager.LoadScene("END");
+        }
+
+        if (collision.gameObject.tag == "Car" && timer <= 800f)
+        {
+            gScore += 25;
 
             Score.text = gScore.ToString();
             PlayerPrefs.SetInt("Score", gScore);

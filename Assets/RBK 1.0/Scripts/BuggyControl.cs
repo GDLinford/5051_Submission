@@ -11,6 +11,8 @@ public class BuggyControl : MonoBehaviour
     [HideInInspector]public GameObject GarageDoor;
     [HideInInspector]public DummyBuggy dummyBuggy;
 
+
+
     //parts Active bools
     public bool frontLeftActive;
     public bool frontRightActive;
