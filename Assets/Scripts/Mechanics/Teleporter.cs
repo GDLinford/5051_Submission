@@ -6,15 +6,26 @@ public class Teleporter : MonoBehaviour
 {
     [SerializeField]
     private GameObject TeleporterExit;
+    private BuggyControl buggyControl;
 
-    void OnTriggerEnter(Collider Boulder)
+    [HideInInspector] public bool teleporting;
+
+    private void Start()
     {
-        if (Boulder.gameObject.tag != "Boulder")
+        buggyControl = GetComponent<BuggyControl>();
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == "Boulder" || collider.gameObject.tag == "Car")
         {
-            return;
+            collider.gameObject.transform.position = TeleporterExit.transform.position;
+            teleporting = true;
         }
 
-        Boulder.gameObject.transform.position = TeleporterExit.transform.position;
+
+        collider.gameObject.transform.rotation = new Quaternion(0, -75, 0, 0);
+        
     }
 
 }

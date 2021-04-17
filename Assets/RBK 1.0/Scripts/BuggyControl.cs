@@ -11,6 +11,8 @@ public class BuggyControl : MonoBehaviour
     [HideInInspector]public GameObject GarageDoor;
     [HideInInspector]public DummyBuggy dummyBuggy;
 
+    [HideInInspector]public Teleporter teleporter;
+
 
 
     //parts Active bools
@@ -231,7 +233,7 @@ public class BuggyControl : MonoBehaviour
 
     private GameObject[] Particle = new GameObject[4];
     private Vector3 steerCurAngle;
-    [HideInInspector] public Rigidbody myRigidbody;
+    public Rigidbody myRigidbody;
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -344,6 +346,7 @@ public class BuggyControl : MonoBehaviour
         wheelHp.SetHealth(50);
         dummyBuggy = FindObjectOfType<DummyBuggy>();
         stateChanger = GetComponent<StateChanger>();
+        teleporter = FindObjectOfType<Teleporter>();
     }
 
     public void ShiftUp()
@@ -466,6 +469,18 @@ public class BuggyControl : MonoBehaviour
 
     void Update()
     {
+
+        if (teleporter.teleporting == true)
+        {
+            myRigidbody.velocity = Vector3.zero;
+
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                teleporter.teleporting = false;
+            }
+        }
+
+
         // speed of car
         speed = myRigidbody.velocity.magnitude * 3f;
 

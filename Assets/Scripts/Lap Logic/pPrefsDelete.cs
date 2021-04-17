@@ -20,6 +20,16 @@ public class pPrefsDelete : Timer
         
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            PlayerPrefs.DeleteAll();
+            Application.Quit();
+        }
+        
+    }
+
     public void deleteScore()
     {
         PlayerPrefs.DeleteAll();

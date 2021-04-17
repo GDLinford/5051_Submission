@@ -13,6 +13,10 @@ public class ChangeScene : MonoBehaviour
 		SceneManager.LoadScene("Main Scene");
     }
 
+	public void BackToMainMenu() {
+		SceneManager.LoadScene("Main Scene");
+	}
+
 	public void Options()
     {
 		Main.gameObject.SetActive(false);
