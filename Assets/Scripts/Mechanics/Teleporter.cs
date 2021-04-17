@@ -24,7 +24,7 @@ public class Teleporter : MonoBehaviour
         }
 
 
-        collider.gameObject.transform.rotation = new Quaternion(0, -75, 0, 0);
+        collider.gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
         
     }
 
