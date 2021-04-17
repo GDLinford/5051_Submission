@@ -20,7 +20,7 @@ public class PlayerAnimation : MonoBehaviour
     
     void Update()
     {
-        animator.SetFloat("Steer", transform.root.GetComponent<BuggyControl>().steer);
+        //animator.SetFloat("Steer", transform.root.GetComponent<BuggyControl>().steer);
     }
 
     void OnAnimatorIK()

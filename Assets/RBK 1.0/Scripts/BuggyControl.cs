@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum ControlMode { simple = 1, touch = 2 }
 
@@ -449,6 +450,11 @@ public class BuggyControl : MonoBehaviour
                 wheelHp.WheelsHP -= 1;
 
                 Debug.Log("Wheels HP: " + wheelHp.WheelsHP);
+
+                if (wheelHp.WheelsHP == 0)
+                {
+                    SceneManager.LoadScene("Menu");
+                }
             }
         }
 
