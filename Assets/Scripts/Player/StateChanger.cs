@@ -7,9 +7,6 @@ public class StateChanger : MonoBehaviour
 {
 	[HideInInspector] public DummyBuggy dummyBuggy;
 
-	private AudioSource gSource;
-	[SerializeField] AudioClip carDoor;
-
 	public GameObject car;
 
 	public GameObject character;
@@ -25,7 +22,6 @@ public class StateChanger : MonoBehaviour
 
     private void Start()
     {
-		gSource = GetComponent<AudioSource>();
 		dummyBuggy = FindObjectOfType<DummyBuggy>();
     }
 
@@ -51,7 +47,6 @@ public class StateChanger : MonoBehaviour
 			{
 
 				Changer();
-				gSource.PlayOneShot(carDoor);
 				changed = true;
 			}
 		}

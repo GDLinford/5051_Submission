@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Score") != 0)
             gScore = PlayerPrefs.GetInt("Score");
-        Score.text = "Score: " + gScore;
+        Score.text = " :" + gScore;
     }
 
     // Update is called once per frame

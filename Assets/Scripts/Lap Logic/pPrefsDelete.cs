@@ -19,4 +19,9 @@ public class pPrefsDelete : Timer
         }
         
     }
+
+    public void deleteScore()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }

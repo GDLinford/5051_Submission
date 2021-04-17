@@ -446,55 +446,6 @@ public class BuggyControl : MonoBehaviour
                 wheelHp.WheelsHP -= 1;
 
                 Debug.Log("Wheels HP: " + wheelHp.WheelsHP);
-
-                if (wheelHp.WheelsHP == 8)
-                {
-
-                }
-
-                if (wheelHp.WheelsHP == 6)
-                {
-
-                }
-
-                if (wheelHp.WheelsHP == 4)
-                {
-
-                }
-
-                if (wheelHp.WheelsHP == 2)
-                {
-
-                }
-
-                if (wheelHp.WheelsHP > 4)
-                {
-
-                }
-
-                if (wheelHp.WheelsHP > 6)
-                {
-                    
-                }
-
-                if (wheelHp.WheelsHP > 8)
-                {
-                    
-                }
-
-                collided = false;
-                collideTimer = 10f;
-                //else if (WheelHp.WheelsHP == 0 && Input.GetKeyDown(KeyCode.Q))
-                //{
-                //    WheelHp.WheelsHP += 10;
-
-                //    RearLeft.gameObject.SetActive(true);
-                //    RearRight.gameObject.SetActive(true);
-                //    frontLeft.gameObject.SetActive(true);
-                //    frontRight.gameObject.SetActive(true);
-
-                //    //decrease score here
-                //}
             }
         }
 
@@ -588,28 +539,28 @@ public class BuggyControl : MonoBehaviour
         if(dummyBuggy.frontRightSlowActive == true && frontRightActive == false)
         {
             carSetting.maxSteerAngle += 75;
-            carSetting.stiffness -= 0.022f;
+            carSetting.stiffness -= 0.015f;
             frontRightActive = true;
         }
 
         if (dummyBuggy.frontLeftSlowActive == true && frontLeftActive == false)
         {
             carSetting.maxSteerAngle += 75;
-            carSetting.stiffness -= 0.022f;
+            carSetting.stiffness -= 0.015f;
             frontLeftActive = true;
         }
 
         if (dummyBuggy.rearRightSlowActive == true && rearRightActive == false)
         {
             carSetting.maxSteerAngle += 75;
-            carSetting.stiffness -= 0.022f;
+            carSetting.stiffness -= 0.015f;
             rearRightActive = true;
         }
 
         if (dummyBuggy.rearLeftSlowActive == true && rearLeftActive == false)
         {
             carSetting.maxSteerAngle += 75;
-            carSetting.stiffness -= 0.022f;
+            carSetting.stiffness -= 0.015f;
             rearLeftActive = true;
         }
 
@@ -626,13 +577,6 @@ public class BuggyControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (dummyBuggy.frontLeftSlowActive == true && dummyBuggy.frontRightSlowActive == true && dummyBuggy.rearLeftSlowActive == true && dummyBuggy.rearRightSlowActive == true)
-        {
-            carSetting.LimitForwardSpeed = 250;
-            carSetting.stiffness = 1.5f;
-            carSetting.maxSteerAngle = 200;
-        }
-
         if (stateChanger.changed == true)
         {
             carSounds.IdleEngine.volume = Mathf.Lerp(carSounds.IdleEngine.volume, 1.0f, 0.1f);
