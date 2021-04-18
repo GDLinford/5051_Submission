@@ -52,7 +52,8 @@ public class DummyBuggy : MonoBehaviour
             frontRightBalancedActive = true;
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
-            //there will be more logic if another wheel is already active but that will be added when I know the basics are working
+            Destroy(GameObject.FindGameObjectWithTag("FastWheelFR"));
+            Destroy(GameObject.FindGameObjectWithTag("SlowWheelFR"));
         }
 
         if (collider.gameObject.CompareTag("BalancedWheelFL") && buggyControl.frontLeftActive != true)
@@ -60,6 +61,8 @@ public class DummyBuggy : MonoBehaviour
             frontLeftBalancedActive = true;
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("SlowWheelFL"));
+            Destroy(GameObject.FindGameObjectWithTag("FastWheelFL"));
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
@@ -68,6 +71,9 @@ public class DummyBuggy : MonoBehaviour
             rearRightBalancedActive = true;
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("SlowWheelRR"));
+            Destroy(GameObject.FindGameObjectWithTag("FastWheelRR"));
+
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
@@ -76,6 +82,8 @@ public class DummyBuggy : MonoBehaviour
             rearLeftBalancedActive = true;
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("SlowWheelRL"));
+            Destroy(GameObject.FindGameObjectWithTag("FastWheelRL"));
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
@@ -84,7 +92,8 @@ public class DummyBuggy : MonoBehaviour
             frontRightFastActive = true;
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
-            //there will be more logic if another wheel is already active but that will be added when I know the basics are working
+            Destroy(GameObject.FindGameObjectWithTag("BalancedWheelFR"));
+            Destroy(GameObject.FindGameObjectWithTag("SlowWheelFR"));
         }
 
         if (collider.gameObject.CompareTag("FastWheelFL") && buggyControl.frontLeftActive != true)
@@ -92,6 +101,8 @@ public class DummyBuggy : MonoBehaviour
             frontLeftFastActive = true;
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("BalancedWheelFL"));
+            Destroy(GameObject.FindGameObjectWithTag("SlowWheelFL"));
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
@@ -100,7 +111,8 @@ public class DummyBuggy : MonoBehaviour
             rearRightFastActive = true;
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
-            //there will be more logic if another wheel is already active but that will be added when I know the basics are working
+            Destroy(GameObject.FindGameObjectWithTag("BalancedWheelRR"));
+            Destroy(GameObject.FindGameObjectWithTag("SlowWheelRR"));
         }
 
         if (collider.gameObject.CompareTag("FastWheelRL") && buggyControl.rearLeftActive != true)
@@ -108,7 +120,8 @@ public class DummyBuggy : MonoBehaviour
             rearLeftFastActive = true;
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
-            //there will be more logic if another wheel is already active but that will be added when I know the basics are working
+            Destroy(GameObject.FindGameObjectWithTag("BalancedWheelRL"));
+            Destroy(GameObject.FindGameObjectWithTag("SlowWheelRL"));
         }
 
         if (collider.gameObject.CompareTag("SlowWheelFR") && buggyControl.frontRightActive != true)
@@ -116,6 +129,8 @@ public class DummyBuggy : MonoBehaviour
             frontRightSlowActive = true;
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("FastWheelFR"));
+            Destroy(GameObject.FindGameObjectWithTag("BalancedWheelFR"));
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
@@ -124,6 +139,8 @@ public class DummyBuggy : MonoBehaviour
             frontLeftSlowActive = true;
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("FastWheelFL"));
+            Destroy(GameObject.FindGameObjectWithTag("BalancedWheelFL"));
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
@@ -132,6 +149,8 @@ public class DummyBuggy : MonoBehaviour
             rearRightSlowActive = true;
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("FastWheelRR"));
+            Destroy(GameObject.FindGameObjectWithTag("BalancedWheelRR"));
             //there will be more logic if another wheel is already active but that will be added when I know the basics are working
         }
 
@@ -140,7 +159,8 @@ public class DummyBuggy : MonoBehaviour
             rearLeftSlowActive = true;
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
-            //there will be more logic if another wheel is already active but that will be added when I know the basics are working
+            Destroy(GameObject.FindGameObjectWithTag("FastWheelRL"));
+            Destroy(GameObject.FindGameObjectWithTag("BalancedWheelRL"));
         }
 
         //the balanced one
@@ -151,6 +171,8 @@ public class DummyBuggy : MonoBehaviour
             //add the game obhect active for the steering wheel when its on the car
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("SteeringWheel2"));
+            Destroy(GameObject.FindGameObjectWithTag("SteeringWheel3"));
         }
 
         //the fast one
@@ -161,6 +183,8 @@ public class DummyBuggy : MonoBehaviour
             //add the game obhect active for the steering wheel when its on the car
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("SteeringWheel1"));
+            Destroy(GameObject.FindGameObjectWithTag("SteeringWheel3"));
         }
 
         //the slow one
@@ -170,6 +194,8 @@ public class DummyBuggy : MonoBehaviour
             //add the game obhect active for the steering wheel when its on the car
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("SteeringWheel1"));
+            Destroy(GameObject.FindGameObjectWithTag("SteeringWheel3"));
         }
 
         //the balanced one
@@ -179,6 +205,8 @@ public class DummyBuggy : MonoBehaviour
             //As with steering Wheels when tthe engine is added to the car enable/show it on the model
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("Engine2"));
+            Destroy(GameObject.FindGameObjectWithTag("Engine3"));
         }
 
         //the fast one
@@ -189,6 +217,8 @@ public class DummyBuggy : MonoBehaviour
             //As with steering Wheels when tthe engine is added to the car enable/show it on the model
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("Engine1"));
+            Destroy(GameObject.FindGameObjectWithTag("Engine3"));
         }
 
         //the slow one
@@ -199,6 +229,8 @@ public class DummyBuggy : MonoBehaviour
             //As with steering Wheels when tthe engine is added to the car enable/show it on the model
             Destroy(collider.gameObject);
             gSource.PlayOneShot(drill);
+            Destroy(GameObject.FindGameObjectWithTag("Engine1"));
+            Destroy(GameObject.FindGameObjectWithTag("Engine2"));
         }
     }
 }
