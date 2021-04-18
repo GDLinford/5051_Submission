@@ -6,6 +6,7 @@ using UnityStandardAssets.Vehicles.Car;
 public class StateChanger : MonoBehaviour
 {
 	[HideInInspector] public DummyBuggy dummyBuggy;
+	public GameObject pressU;
 
 	public GameObject car;
 
@@ -43,12 +44,20 @@ public class StateChanger : MonoBehaviour
     {
 		if (dummyBuggy.completed == true)
         {
+			pressU.SetActive(true);
+
 			if (Input.GetKeyUp(KeyCode.U))
 			{
 
 				Changer();
 				changed = true;
+				
 			}
+
+			if (changed == true)
+            {
+				pressU.SetActive(false);
+            }
 		}
 	}
 }

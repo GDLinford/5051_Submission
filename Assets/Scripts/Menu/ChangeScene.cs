@@ -14,7 +14,7 @@ public class ChangeScene : MonoBehaviour
     }
 
 	public void BackToMainMenu() {
-		SceneManager.LoadScene("Main Scene");
+		SceneManager.LoadScene("Menu");
 	}
 
 	public void Options()
