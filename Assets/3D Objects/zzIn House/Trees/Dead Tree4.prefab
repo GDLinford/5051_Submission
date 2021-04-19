@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2690328808862494662}
   - component: {fileID: 7512390723323198306}
   - component: {fileID: 3788063630085064335}
+  - component: {fileID: 3103653721121722347}
+  - component: {fileID: 6833026649232938477}
   m_Layer: 0
   m_Name: Dead Tree4
   m_TagString: Untagged
@@ -80,7 +82,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -88,3 +90,30 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3103653721121722347
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349728476747955759}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -454916054043427324, guid: 1ffcda501211eeb40a8f76d357d63b95, type: 3}
+--- !u!65 &6833026649232938477
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349728476747955759}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.9828763, y: 10.88387, z: 8.069044}
+  m_Center: {x: -1.0482314, y: 4.7019353, z: -0.106627464}

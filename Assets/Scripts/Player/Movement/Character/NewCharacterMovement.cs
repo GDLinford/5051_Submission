@@ -24,6 +24,8 @@ public class NewCharacterMovement : MonoBehaviour
 
 	private bool cursorLocked;
 
+	public Pause pause;
+
     [HideInInspector]
     public bool canMove = true;
 
@@ -43,7 +45,9 @@ public class NewCharacterMovement : MonoBehaviour
 
     void LateUpdate()
     {
-		Move();
+		if (!pause.GameIsPaused) {
+			Move();
+		}
 		
 	}
 
@@ -87,20 +91,20 @@ public class NewCharacterMovement : MonoBehaviour
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
-        CursorUnlock();
+        //CursorUnlock();
 	}
 
-	private void CursorUnlock() {
-		if (Input.GetKeyDown(KeyCode.LeftShift)) {
-			cursorLocked = false;
-			Cursor.lockState = CursorLockMode.None;
-			Cursor.visible = true;
-		}
+	//private void CursorUnlock() {
+	//	if (Input.GetKeyDown(KeyCode.LeftShift)) {
+	//		cursorLocked = false;
+	//		Cursor.lockState = CursorLockMode.None;
+	//		Cursor.visible = true;
+	//	}
 
-		if (Input.GetKeyUp(KeyCode.LeftShift)) {
-			cursorLocked = true;
-			Cursor.lockState = CursorLockMode.Locked;
-			Cursor.visible = false;
-		}
-	}
+	//	if (Input.GetKeyUp(KeyCode.LeftShift)) {
+	//		cursorLocked = true;
+	//		Cursor.lockState = CursorLockMode.Locked;
+	//		Cursor.visible = false;
+	//	}
+	//}
 }
